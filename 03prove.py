@@ -115,9 +115,9 @@ def predict_data_car(data, X, y, data_set):
     xTrain, xTest, yTrain, yTest = train_test_split(X,
                                                     y,
                                                     test_size=0.2)
-    regressor = KNeighborsRegressor(n_neighbors=3)
-    regressor.fit(xTrain, yTrain)
-    predictions = regressor.predict(xTest)
+    classifier = KNeighborsClassifier(n_neighbors=3)
+    classifier.fit(xTrain, yTrain)
+    predictions = classifier.predict(xTest)
     print("Iris Prediction Accuracy with Neighbors for ", data_set)
     print(metrics.accuracy_score(yTest, predictions)*100)
 
@@ -126,9 +126,9 @@ def predict_data_mpg(data, X, y, data_set):
     xTrain, xTest, yTrain, yTest = train_test_split(X,
                                                     y,
                                                     test_size=0.2)
-    classifier = KNeighborsClassifier(n_neighbors=3)
-    classifier.fit(xTrain, yTrain)
-    predictions = classifier.predict(xTest)
+    regressor = KNeighborsRegressor(n_neighbors=3)
+    regressor.fit(xTrain, yTrain)
+    predictions = regressor.predict(xTest)
     print("Iris Prediction Accuracy with Neighbors for ", data_set)
     print(metrics.r2_score(yTest, predictions.round(), normalize=False)*100)
 
